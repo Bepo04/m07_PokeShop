@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register"
+    android:background="@drawable/background_clear">
+
+    <fragment
+        android:name="com.ericandpau.pokeshop.NavBar"
+        android:id="@+id/NavBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </fragment>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toTopOf="parent"
+        android:gravity="center"
+        android:paddingTop="100dp"
+        android:layout_marginTop="150dp"
+        android:textSize="50sp"
+        android:text="@string/registre" />
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Nom -->
+        <TextView
+            android:id="@+id/textViewNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:paddingTop="190dp"
+            android:text="@string/nom"/>
+
+        <EditText
+            android:id="@+id/editTextNom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_margin="5dp"
+            android:hint="@string/nom" />
+
+        <!-- Cognom -->
+        <TextView
+            android:id="@+id/textViewCognom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/cognom" />
+
+        <EditText
+            android:id="@+id/editTextCognom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_margin="5dp"
+            android:hint="@string/cognom" />
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/email" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/exemple_email"
+            android:ems="10"
+            android:layout_margin="5dp"
+            android:inputType="textEmailAddress" />
+
+        <!-- Telèfon -->
+        <TextView
+            android:id="@+id/textViewTelefon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/telefon" />
+
+        <EditText
+            android:id="@+id/editTextTelefon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="5dp"
+            android:inputType="phone"
+            android:hint="@string/telefon" />
+
+        <!-- Adreça -->
+        <TextView
+            android:id="@+id/textViewAdreca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/adreca" />
+
+        <EditText
+            android:id="@+id/editTextAdreca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="5dp"
+            android:inputType="textPostalAddress"
+            android:hint="@string/adreca" />
+
+        <!-- Botó de Registrar -->
+        <Button
+            android:id="@+id/buttonRegistrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:text="@string/registrar"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/primary_day"/>
+    </LinearLayout>
+
+
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.ericandpau.pokeshop.BottomNav"
+        tools:ignore="MissingConstraints"
+        tools:layout="@layout/fragment_bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
