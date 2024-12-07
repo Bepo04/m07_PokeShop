@@ -4,16 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    tools:context=".SettingsActivity">
+
+    <!-- Fragmento para la barra de navegación superior (NavBar) -->
+    <androidx.fragment.app.FragmentContainerView
+        android:name="com.ericandpau.pokeshopk.NavBar"
+        android:id="@+id/NavBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Título de la pantalla -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setext"
+        android:paddingTop="130dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"/>
 
     <!-- Contenedor para las preferencias -->
     <FrameLayout
         android:id="@+id/settings_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:paddingTop="200dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"/>
+
+    <!-- Fragmento para la barra de navegación inferior (BottomNav) -->
+    <androidx.fragment.app.FragmentContainerView
+        android:name="com.ericandpau.pokeshopk.BottomNav"
+        android:id="@+id/BottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout="@layout/fragment_bottom_nav"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

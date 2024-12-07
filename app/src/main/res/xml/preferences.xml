@@ -9,7 +9,8 @@
         android:defaultValue="ca"
         android:entries="@array/language_options"
         android:entryValues="@array/language_values"
-        android:dialogTitle="Tria un idioma" />
+        android:dialogTitle="Tria un idioma"
+        android:icon="@drawable/idioma"/>
 
     <!-- Preferencia de Tema -->
     <ListPreference
@@ -19,7 +20,8 @@
         android:defaultValue="light"
         android:entries="@array/theme_options"
         android:entryValues="@array/theme_values"
-        android:dialogTitle="Tria un tema" />
+        android:dialogTitle="Tria un tema"
+        android:icon="@drawable/paleta"/>
 
     <!-- Preferencia de tamaño de fuente -->
     <ListPreference
@@ -29,6 +31,7 @@
         android:defaultValue="medium"
         android:entries="@array/font_size_options"
         android:entryValues="@array/font_size_values"
-        android:dialogTitle="Tria la mida de la lletra" />
+        android:dialogTitle="Tria la mida de la lletra"
+        android:icon="@drawable/mida"/>
 
 </PreferenceScreen>
