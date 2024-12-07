@@ -6,19 +6,17 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 
-class MainActivity : AppCompatActivity() {
+class CarretoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         WindowCompat.setDecorFitsSystemWindows(window, false)
+        setContentView(R.layout.activity_carreto)
 
-        setContentView(R.layout.activity_main)
+        val comandaButton: Button = findViewById(R.id.comanda)
 
-        val botoExplorar: Button = findViewById(R.id.botoCard)
-
-        botoExplorar.setOnClickListener {
-            val intent = Intent(this@MainActivity, ProductsActivity::class.java)
+        comandaButton.setOnClickListener {
+                val intent = Intent(this@CarretoActivity, ComandaRealitzadaActivity::class.java)
             startActivity(intent)
         }
     }

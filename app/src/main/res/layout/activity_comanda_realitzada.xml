@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/done"
-    tools:context=".ComandaRealitzada">
+    tools:context=".ComandaRealitzadaActivity">
 
+    <!-- Texto Principal -->
     <TextView
         android:id="@+id/text_comanda_realizada"
         android:layout_width="wrap_content"
@@ -21,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Icono Festivo -->
     <ImageView
         android:id="@+id/icon_festive"
         android:layout_width="150dp"
@@ -31,6 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@mipmap/icon2" />
 
+    <!-- Texto Secundario -->
     <TextView
         android:id="@+id/text_gracias"
         android:layout_width="wrap_content"
@@ -44,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Botón para Continuar -->
     <Button
         android:id="@+id/back"
         android:layout_width="200dp"
