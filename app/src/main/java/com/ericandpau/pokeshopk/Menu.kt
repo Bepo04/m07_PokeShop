@@ -52,7 +52,7 @@ class Menu : AppCompatActivity() {
         }
 
         settings.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java)) // Cambia si `settings` tiene una actividad específica.
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
 
         help.setOnClickListener {

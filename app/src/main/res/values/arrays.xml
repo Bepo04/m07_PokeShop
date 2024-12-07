@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language Options -->
+    <string-array name="language_options">
+        <item>Español</item>
+        <item>Català</item>
+        <item>Anglès</item>
+    </string-array>
+
+    <string-array name="language_values">
+        <item>es</item>
+        <item>ca</item>
+        <item>en</item>
+    </string-array>
+
+    <!-- Theme Options -->
+    <string-array name="theme_options">
+        <item>Clar</item>
+        <item>Fosc</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+
+    <!-- Font Size Options -->
+    <string-array name="font_size_options">
+        <item>Petita</item>
+        <item>Mitjana</item>
+        <item>Gran</item>
+    </string-array>
+
+    <string-array name="font_size_values">
+        <item>small</item>
+        <item>medium</item>
+        <item>large</item>
+    </string-array>
+</resources>

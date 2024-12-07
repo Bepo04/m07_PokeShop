@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Preferencia de Idioma -->
+    <ListPreference
+        android:key="pref_language"
+        android:title="Idioma"
+        android:summary="Selecciona el teu idioma preferit"
+        android:defaultValue="ca"
+        android:entries="@array/language_options"
+        android:entryValues="@array/language_values"
+        android:dialogTitle="Tria un idioma" />
+
+    <!-- Preferencia de Tema -->
+    <ListPreference
+        android:key="pref_theme"
+        android:title="Tema"
+        android:summary="Selecciona el tema de l'aplicació"
+        android:defaultValue="light"
+        android:entries="@array/theme_options"
+        android:entryValues="@array/theme_values"
+        android:dialogTitle="Tria un tema" />
+
+    <!-- Preferencia de tamaño de fuente -->
+    <ListPreference
+        android:key="pref_font_size"
+        android:title="Mida de la lletra"
+        android:summary="Selecciona la mida de la lletra"
+        android:defaultValue="medium"
+        android:entries="@array/font_size_options"
+        android:entryValues="@array/font_size_values"
+        android:dialogTitle="Tria la mida de la lletra" />
+
+</PreferenceScreen>
