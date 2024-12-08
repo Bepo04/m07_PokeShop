@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.PokeShopK" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.MyApp" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary_day</item>
+        <item name="colorSecondary">@color/secondary_day</item>
+        <item name="colorOnPrimary">@color/OnPrimary_day</item>
+        <item name="colorOnSecondary">@color/OnSecondary_day</item>
     </style>
-
-    <style name="Theme.PokeShopK" parent="Base.Theme.PokeShopK" />
 </resources>
