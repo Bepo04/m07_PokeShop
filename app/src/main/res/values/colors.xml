@@ -19,4 +19,10 @@
     <color name="chatbot">#116073</color>
     <color name="search_bar">#F7E7FF</color>
     <color name="main_background">#B796E9</color>
+
+    <!-- Themes -->
+    <color name="primary">#6700AF</color>
+    <color name="OnPrimary">#FFFFFF</color>
+    <color name="secondary">#E9DDFF</color>
+    <color name="OnSecondary">#52007E</color>
 </resources>
