@@ -5,5 +5,18 @@
         <item name="colorSecondary">@color/secondary_day</item>
         <item name="colorOnPrimary">@color/OnPrimary_day</item>
         <item name="colorOnSecondary">@color/OnSecondary_day</item>
+    <style name="Base.Theme.PokeShop" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.PokeShop" parent="Base.Theme.PokeShop" />
+
+    <style name="Theme.MyApp" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Personaliza los colores principales -->
+        <item name="colorPrimary">@color/primary_day</item>
+        <item name="colorSecondary">@color/secondary_day</item>
+        <item name="colorOnPrimary">@color/OnPrimary_day</item>
+        <item name="colorOnSecondary">@color/OnSecondary_day</item>
     </style>
 </resources>

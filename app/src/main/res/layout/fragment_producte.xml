@@ -5,7 +5,7 @@
     android:layout_height="170dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="25dp"
-    tools:context=".product">
+    tools:context=".Producte">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -47,8 +47,12 @@
                 android:backgroundTint="@color/primary_day"
                 android:textColor="@color/secondary_day"
                 android:text="@string/compra"
-                android:layout_marginEnd="15dp"/>
+                android:layout_marginEnd="5dp"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

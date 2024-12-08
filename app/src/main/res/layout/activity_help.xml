@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Help">
+    tools:context=".HelpActivity"
+    android:background="@drawable/background">
 
     <fragment
         android:name="com.ericandpau.pokeshopk.NavBar"
@@ -143,7 +144,7 @@
                         <EditText
                             android:layout_width="220dp"
                             android:layout_height="50dp"
-                            android:text="@string/chatBotPlaceHolder" />
+                            android:text="En que et puc ajudar?" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </FrameLayout>

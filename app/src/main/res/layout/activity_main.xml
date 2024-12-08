@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
 
     <fragment
         android:name="com.ericandpau.pokeshopk.NavBar"
@@ -65,11 +66,11 @@
 
 
     <fragment
-        android:name="com.ericandpau.pokeshopk.product"
+        android:name="com.ericandpau.pokeshopk.Producte"
         android:id="@+id/product1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_product"
+        tools:layout="@layout/fragment_producte"
         app:layout_constraintTop_toBottomOf="@+id/searchCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

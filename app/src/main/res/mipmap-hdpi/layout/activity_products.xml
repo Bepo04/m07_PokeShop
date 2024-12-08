@@ -9,7 +9,7 @@
     android:background="@drawable/background">
 
     <fragment
-        android:name="com.ericandpau.pokeshop.NavBar"
+        android:name="com.ericandpau.pokeshopk.NavBar"
         android:id="@+id/NavBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/bottom_nav"
-        android:name="com.ericandpau.pokeshop.BottomNav"
+        android:name="com.ericandpau.pokeshopk.BottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

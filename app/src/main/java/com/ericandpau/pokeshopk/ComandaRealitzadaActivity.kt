@@ -6,19 +6,18 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 
-class MainActivity : AppCompatActivity() {
+class ComandaRealitzadaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_comanda_realitzada)
 
-        val botoExplorar: Button = findViewById(R.id.botoCard)
-
-        botoExplorar.setOnClickListener {
-            val intent = Intent(this@MainActivity, ProductsActivity::class.java)
+        val back: Button = findViewById(R.id.back)
+        back.setOnClickListener {
+            val intent = Intent(this@ComandaRealitzadaActivity, MainActivity::class.java)
             startActivity(intent)
         }
     }
