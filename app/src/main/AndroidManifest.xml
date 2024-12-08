@@ -13,7 +13,11 @@
         android:theme="@style/Theme.PokeShop"
         tools:targetApi="35">
         <activity
+<<<<<<< HEAD
             android:name=".filters"
+=======
+            android:name=".RegistreCompletatActivity"
+>>>>>>> 13540e5 (Added register done)
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
