@@ -18,7 +18,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <Button
+        android:id="@+id/btnFiltres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filtres"
+        android:backgroundTint="@color/primary_day"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/NavBar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="20dp"
+         />
+
+
     <fragment
+        android:layout_marginTop="65dp"
         android:name="com.ericandpau.pokeshopk.Producte"
         android:id="@+id/product1"
         android:layout_width="wrap_content"
