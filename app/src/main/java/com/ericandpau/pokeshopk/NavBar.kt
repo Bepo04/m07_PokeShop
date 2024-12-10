@@ -51,7 +51,7 @@ class NavBar : Fragment() {
             if (intent.getBooleanExtra("Loged", false)) {
                 loginButton.text = "Perfil"
                 loginButton.setOnClickListener {
-                    val profileIntent = Intent(activity, Login::class.java)
+                    val profileIntent = Intent(activity, SettingsActivity::class.java)
                     startActivity(profileIntent)
                 }
             } else {

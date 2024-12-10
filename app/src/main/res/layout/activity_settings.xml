@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/setext"
+        android:text="Perfil"
         android:paddingTop="130dp"
         android:gravity="center"
         android:textSize="30sp"

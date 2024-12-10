@@ -46,7 +46,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:backgroundTint="@color/primary_day"
                 android:textColor="@color/secondary_day"
-                android:text="@string/compra"
+                android:text="Afegeix"
                 android:layout_marginEnd="5dp"/>
 
 

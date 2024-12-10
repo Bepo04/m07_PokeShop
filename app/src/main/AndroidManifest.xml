@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PokeShop"
         tools:targetApi="35">
+
         <activity
-            android:name=".filters"
-            android:exported="false" />
+            android:name=".Filters"
+            android:exported="true" />
+
         <activity
             android:name=".SettingsActivity"
             android:exported="true" />

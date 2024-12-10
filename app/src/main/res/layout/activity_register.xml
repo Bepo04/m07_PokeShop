@@ -132,6 +132,45 @@
             android:backgroundTint="@color/primary_day"/>
     </LinearLayout>
 
+    <ImageView
+        android:paddingTop="30dp"
+        android:id="@+id/imageViewPikachu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pika"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registre completat !"
+        android:paddingTop="150dp"
+        android:paddingLeft="100dp"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@id/imageViewPikachu"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonReturnHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary_day"
+        android:textSize="20dp"
+        android:text="Tornar a l'inici"
+        android:layout_below="@id/textViewStatus"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="600dp"/>
+
 
 
     <fragment
