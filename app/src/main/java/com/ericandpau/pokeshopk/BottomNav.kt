@@ -8,12 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.ericandpau.pokeshopk.ProductsActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BottomNav : Fragment() {
 
-    private lateinit var exit: Button
-    private lateinit var pokes: Button
-    private lateinit var help: Button
+    private lateinit var bottomNavView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,25 +24,29 @@ class BottomNav : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_bottom_nav, container, false)
 
-        exit = view.findViewById(R.id.exit)
-        pokes = view.findViewById(R.id.pokes)
-        help = view.findViewById(R.id.help)
+        bottomNavView = view.findViewById(R.id.bottom_nav)
 
-        exit.setOnClickListener {
-            activity?.finishAffinity()
-        }
-
-        pokes.setOnClickListener {
-            activity?.let {
-                val intent = Intent(it, ProductsActivity::class.java)
-                startActivity(intent)
-            }
-        }
-
-        help.setOnClickListener {
-            activity?.let {
-                val intent = Intent(it, HelpActivity::class.java)
-                startActivity(intent)
+        bottomNavView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.botmenu_exit -> {
+                    activity?.finishAffinity()
+                    true
+                }
+                R.id.botmenu_pokes -> {
+                    activity?.let {
+                        val intent = Intent(it, ProductsActivity::class.java)
+                        startActivity(intent)
+                    }
+                    true
+                }
+                R.id.botmenu_help -> {
+                    activity?.let {
+                        val intent = Intent(it, HelpActivity::class.java)
+                        startActivity(intent)
+                    }
+                    true
+                }
+                else -> false
             }
         }
 
