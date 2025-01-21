@@ -10,6 +10,10 @@ import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.ericandpau.pokeshopk.PokemonProvider
+import com.ericandpau.pokeshopk.PokemonAdapter
 
 class ProductsActivity : AppCompatActivity() {
 
@@ -33,5 +37,15 @@ class ProductsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        initRecyclerView()
+
     }
+
+    fun initRecyclerView() {
+        val recyclerView = findViewById<RecyclerView>(R.id.rv)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = PokemonAdapter(PokemonProvider.pokemons)
+
+    }
+
 }
