@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
@@ -26,7 +27,7 @@ class ProductsActivity : AppCompatActivity() {
             insets
         }
 
-        val btnFiltres: Button = findViewById(R.id.btnFiltres)
+        val btnFiltres: ImageButton = findViewById(R.id.btnFiltres)
         btnFiltres.setOnClickListener {
             val intent = Intent(this, Filters::class.java)
             startActivity(intent)

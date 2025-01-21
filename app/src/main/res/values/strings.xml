@@ -43,4 +43,6 @@
     <string name="chatBotPlaceHolder">En que et puc ajudar?</string>
     <string name="setext">Settings</string>
     <string name="void_char">​</string>
+    <string name="filtres">Filtres</string>
+    <string name="perfil">Perfil</string>
 </resources>

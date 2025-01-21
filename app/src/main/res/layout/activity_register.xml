@@ -12,7 +12,9 @@
         android:name="com.ericandpau.pokeshopk.NavBar"
         android:id="@+id/NavBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_nav_bar">
     </fragment>
 
     <TextView
@@ -170,8 +172,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="120dp"
         android:layout_marginTop="600dp"/>
-
-
 
     <fragment
         android:layout_width="match_parent"

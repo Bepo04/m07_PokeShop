@@ -3,66 +3,84 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".NavBar">
-
-    <LinearLayout
+    android:layout_height="80dp"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp"
+    android:background="@color/secondary_day">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="40dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_gravity="center_vertical">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/const_layout_ini_burg"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="70dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageButton
                 android:id="@+id/hamburgesa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="7dp"
-                android:layout_weight="1"
-                android:src="@drawable/baseline_menu_24" />
+                android:src="@drawable/burguer_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/inici"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/main_background"/>
 
             <Button
                 android:id="@+id/inici"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:text="@string/inici"
-                android:backgroundTint="@color/primary_day"/>
-
-        </LinearLayout>
-
-        <LinearLayout
+                android:backgroundTint="@color/primary_day"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/hamburgesa"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="5dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/const_layout_log_carro"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <Button
                 android:id="@+id/login"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:text="@string/login"
-                android:backgroundTint="@color/primary_day"/>
+                android:layout_gravity="start"
+                android:backgroundTint="@color/primary_day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cart"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="10dp"/>
+
 
             <Button
                 android:id="@+id/cart"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:text="@string/cart"
-                android:backgroundTint="@color/primary_day"/>
-        </LinearLayout>
-    </LinearLayout>
+                android:layout_gravity="end"
+                android:backgroundTint="@color/primary_day"
+                android:layout_marginStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/login"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

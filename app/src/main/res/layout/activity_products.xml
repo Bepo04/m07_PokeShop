@@ -18,17 +18,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/btnFiltres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Filtres"
-        android:backgroundTint="@color/primary_day"
-        android:textColor="@color/white"
+        android:src="@drawable/filter"
         app:layout_constraintTop_toBottomOf="@id/NavBar"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="20dp"
-         />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/product1"
+        android:layout_marginEnd="26dp"
+        android:backgroundTint="@color/OnSecondary_night"/>
 
 
     <fragment
