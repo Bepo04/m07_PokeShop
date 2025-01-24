@@ -46,6 +46,9 @@ class ProductsActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = PokemonAdapter(PokemonProvider.pokemons)
 
+
+
+
     }
 
 }

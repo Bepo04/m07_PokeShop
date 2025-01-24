@@ -25,7 +25,6 @@
         android:src="@drawable/filter"
         app:layout_constraintTop_toBottomOf="@id/NavBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/product1"
         android:layout_marginEnd="26dp"
         android:backgroundTint="@color/OnSecondary_night"/>
 
