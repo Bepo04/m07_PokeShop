@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation (libs.glide)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -45,5 +46,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("androidx.compose.ui:ui-text-google-fonts:1.4.0")
+    implementation(libs.androidx.ui.text.google.fonts)
 }
