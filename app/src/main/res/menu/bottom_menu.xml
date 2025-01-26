@@ -8,7 +8,8 @@
     <item
         android:title="@string/void_char"
         android:id="@+id/botmenu_pokes"
-        android:icon="@drawable/pokeicon"/>
+        android:icon="@drawable/pokeicon2"
+        />
 
     <item
         android:title="@string/void_char"

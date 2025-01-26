@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProductsActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true">
 
     <fragment
         android:name="com.ericandpau.pokeshopk.NavBar"
@@ -18,24 +19,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <ImageButton
-        android:id="@+id/btnFiltres"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/list_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/filter"
-        app:layout_constraintTop_toBottomOf="@id/NavBar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="26dp"
-        android:backgroundTint="@color/OnSecondary_night"/>
+        app:layout_constraintTop_toBottomOf="@+id/NavBar"
+        app:layout_constraintBottom_toTopOf="@+id/rv">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/pokemons"
+            android:textStyle="bold"
+            android:textSize="14pt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnFiltres"/>
+
+        <ImageButton
+            android:id="@+id/btnFiltres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="26dp"
+            android:backgroundTint="@color/OnSecondary_night"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
-        app:layout_constraintTop_toBottomOf="@id/btnFiltres"
+        app:layout_constraintTop_toBottomOf="@id/list_title"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
-        android:background="@color/black"
         android:layout_height="0dp"/>
 
     <fragment

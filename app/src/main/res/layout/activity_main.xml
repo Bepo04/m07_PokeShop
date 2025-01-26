@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true">
 
     <fragment
         android:name="com.ericandpau.pokeshopk.NavBar"
@@ -160,10 +161,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="com.ericandpau.pokeshopk.BottomNav"
-        tools:ignore="MissingConstraints"
         tools:layout="@layout/fragment_bottom_nav"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

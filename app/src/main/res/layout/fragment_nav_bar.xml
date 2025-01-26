@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/secondary_day"
     android:fitsSystemWindows="true">
     
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/secondary_day"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_gravity="center_vertical">
         
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/done"
-    tools:context=".ComandaRealitzadaActivity">
+    tools:context=".ComandaRealitzadaActivity"
+    android:fitsSystemWindows="true">
 
     <!-- Texto Principal -->
     <TextView
