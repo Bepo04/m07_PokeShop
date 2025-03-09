@@ -16,8 +16,8 @@ class PokemonViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
     fun render(pokemonModel: Pokemon){
 
-        textNom.text = pokemonModel.nom
-        textTipo.text = "Tipus: ${pokemonModel.tipo}"
+        textNom.text = pokemonModel.nom.uppercase()
+        textTipo.text = "Tipus: ${pokemonModel.tipo.uppercase()}"
         textAlsada.text = "Alçada: ${pokemonModel.altura}"
 
         Glide.with(foto.context)
