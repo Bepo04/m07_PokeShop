@@ -29,6 +29,7 @@
         app:layout_constraintBottom_toTopOf="@+id/rv">
 
         <TextView
+            android:id="@+id/titol"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/pokemons"
@@ -37,7 +38,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnFiltres"/>
+            app:layout_constraintEnd_toStartOf="@+id/btnAfegir"/>
+
+        <Button
+            android:id="@+id/btnAfegir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Afegir"
+            android:backgroundTint="@color/primary"
+            app:layout_constraintStart_toEndOf="@+id/titol"
+            app:layout_constraintEnd_toStartOf="@+id/btnFiltres"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
 
         <ImageButton
             android:id="@+id/btnFiltres"
