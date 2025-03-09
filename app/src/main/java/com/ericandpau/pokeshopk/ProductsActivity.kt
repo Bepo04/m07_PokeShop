@@ -11,6 +11,8 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
@@ -25,7 +27,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ProductsActivity : AppCompatActivity() {
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,6 +63,13 @@ class ProductsActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
+    fun updateRecyclerView(pokemons: List<Pokemon>) {
+        val recyclerView = findViewById<RecyclerView>(R.id.rv)
+        recyclerView.adapter = PokemonAdapter(pokemons.toMutableList()) { pokemonId ->
+            deletePokemon(pokemonId)
+        }
+    }
+
     private fun loadPokemons() {
         lifecycleScope.launch {
             try {
@@ -79,9 +87,32 @@ class ProductsActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateRecyclerView(pokemons: List<Pokemon>) {
-        val recyclerView = findViewById<RecyclerView>(R.id.rv)
-        recyclerView.adapter = PokemonAdapter(pokemons)
+    private fun deletePokemon(id: Int) {
+        lifecycleScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    RetrofitInstance.api.deletePokemon(id)
+                }
+                if (response.isSuccessful) {
+                    Toast.makeText(
+                        this@ProductsActivity,
+                        "Eliminat correctament",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    loadPokemons()
+                } else {
+                    Toast.makeText(
+                        this@ProductsActivity,
+                        "Error eliminant Pokémon",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.e("ProductsActivity", "Error al eliminar Pokémon: ${e.message}")
+                Toast.makeText(this@ProductsActivity, "Error de xarxa", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun showAddPokemonDialog() {
@@ -127,22 +158,43 @@ class ProductsActivity : AppCompatActivity() {
     private fun addPokemonToApi(nom: String, tipo: String, altura: Int) {
         lifecycleScope.launch {
             try {
-                val newPokemon = Pokemon(id=0, nom = nom, tipo = tipo, altura = altura, imgUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10095.png")
+                val newPokemon = Pokemon(
+                    id = 0,
+                    nom = nom,
+                    tipo = tipo,
+                    altura = altura,
+                    imgUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10095.png"
+                )
                 val response = withContext(Dispatchers.IO) {
-                    RetrofitInstance.api.addPokemon(nom, tipo, altura, "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10095.png")
+                    RetrofitInstance.api.addPokemon(
+                        nom,
+                        tipo,
+                        altura,
+                        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10095.png"
+                    )
                 }
 
                 if (response.isSuccessful) {
-                    Toast.makeText(this@ProductsActivity, "Pokémon afegit correctament", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@ProductsActivity,
+                        "Pokémon afegit correctament",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     loadPokemons()
                 } else {
                     Log.e("RESPONSE:", response.toString())
-                    Toast.makeText(this@ProductsActivity, "Error al afegir Pokémon", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@ProductsActivity,
+                        "Error al afegir Pokémon",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
                 Toast.makeText(this@ProductsActivity, "Error de conexió", Toast.LENGTH_SHORT).show()
             }
+
+
         }
     }
 }
