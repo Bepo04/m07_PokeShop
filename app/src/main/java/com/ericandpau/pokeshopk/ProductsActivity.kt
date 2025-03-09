@@ -2,6 +2,7 @@ package com.ericandpau.pokeshopk
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -10,10 +11,14 @@ import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ericandpau.pokeshopk.PokemonProvider
 import com.ericandpau.pokeshopk.PokemonAdapter
+import com.ericandpau.pokeshopk.data.RetrofitInstance
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ProductsActivity : AppCompatActivity() {
 
@@ -38,17 +43,34 @@ class ProductsActivity : AppCompatActivity() {
         }
 
         initRecyclerView()
-
+        loadPokemons()
     }
 
     fun initRecyclerView() {
         val recyclerView = findViewById<RecyclerView>(R.id.rv)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = PokemonAdapter(PokemonProvider.pokemons)
+    }
 
+    private fun loadPokemons() {
+        lifecycleScope.launch {
+            try {
+                // Trucada asincrona a la API
+                val pokemons = withContext(Dispatchers.IO) {
+                    RetrofitInstance.api.getPokemons()
+                }
+                Log.d("ProductsActivity", "Pokemons obtenidos: $pokemons")
+                // Actualitzem la vista
+                updateRecyclerView(pokemons)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.e("ProductsActivity", "Error al cargar Pokémons: ${e.message}")
+            }
+        }
+    }
 
-
-
+    private fun updateRecyclerView(pokemons: List<Pokemon>) {
+        val recyclerView = findViewById<RecyclerView>(R.id.rv)
+        recyclerView.adapter = PokemonAdapter(pokemons)
     }
 
 }

@@ -19,7 +19,6 @@ class PokemonAdapter(val pokemonList:List<Pokemon>) : RecyclerView.Adapter<Pokem
         return pokemonList.size;
     }
 
-
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val item = pokemonList[position]
 

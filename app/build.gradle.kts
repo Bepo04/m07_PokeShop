@@ -47,4 +47,12 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.ui.text.google.fonts)
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp)
+    //Glide
+    implementation(libs.glide.v4110)
+    //Coroutines
+    implementation(libs.kotlinx.coroutines.android)
 }

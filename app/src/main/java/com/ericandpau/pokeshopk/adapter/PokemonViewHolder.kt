@@ -9,14 +9,19 @@ import com.ericandpau.pokeshopk.R
 
 class PokemonViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
-    val pokemon = view.findViewById<TextView>(R.id.textPokemon)
-    val photo = view.findViewById<ImageView>(R.id.foto)
+    val textNom = view.findViewById<TextView>(R.id.textNom)
+    val textTipo = view.findViewById<TextView>(R.id.textTipo)
+    val textAlsada = view.findViewById<TextView>(R.id.textAlsada)
+    val foto = view.findViewById<ImageView>(R.id.foto)
 
     fun render(pokemonModel: Pokemon){
 
-        pokemon.text = pokemonModel.text
-        Glide.with(photo.context).load(pokemonModel.photo).into(photo)
+        textNom.text = pokemonModel.nom
+        textTipo.text = "Tipus: ${pokemonModel.tipo}"
+        textAlsada.text = "Alçada: ${pokemonModel.altura}"
+
+        Glide.with(foto.context)
+            .load(pokemonModel.imgUrl)
+            .into(foto)
     }
-
-
 }
