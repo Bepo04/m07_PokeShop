@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class Pokemon (
 
     @SerializedName("id")
-    val id: Int,
+    val id: Int = 0,
     @SerializedName("nom")
     val nom: String,
     @SerializedName("tipo")
