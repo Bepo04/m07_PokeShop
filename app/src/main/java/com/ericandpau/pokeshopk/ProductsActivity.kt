@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
@@ -68,9 +69,30 @@ class ProductsActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateRecyclerView(pokemons: List<Pokemon>) {
-        val recyclerView = findViewById<RecyclerView>(R.id.rv)
-        recyclerView.adapter = PokemonAdapter(pokemons)
+    private fun deletePokemon(id: Int) {
+        lifecycleScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    RetrofitInstance.api.deletePokemon(id)
+                }
+                if (response.isSuccessful) {
+                    Toast.makeText(this@ProductsActivity, "Eliminat correctament", Toast.LENGTH_SHORT).show()
+                    loadPokemons()
+                } else {
+                    Toast.makeText(this@ProductsActivity, "Error eliminant Pokémon", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.e("ProductsActivity", "Error al eliminar Pokémon: ${e.message}")
+                Toast.makeText(this@ProductsActivity, "Error de xarxa", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
+    private fun updateRecyclerView(pokemons: List<Pokemon>) {
+        val recyclerView = findViewById<RecyclerView>(R.id.rv)
+        recyclerView.adapter = PokemonAdapter(pokemons.toMutableList()) { pokemonId ->
+            deletePokemon(pokemonId)
+        }
+    }
 }
