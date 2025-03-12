@@ -16,7 +16,6 @@ import javax.net.ssl.X509TrustManager
 
 object RetrofitInstance {
     private const val BASE_URL = Config.BASE_API_URL
-
     private val client: OkHttpClient by lazy {
         getUnsafeOkHttpClient()
     }

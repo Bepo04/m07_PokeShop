@@ -26,7 +26,6 @@ import kotlinx.coroutines.withContext
 
 class ProductsActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -50,6 +49,18 @@ class ProductsActivity : AppCompatActivity() {
         val btnAddPokemon: Button = findViewById(R.id.btnAfegir)
         btnAddPokemon.setOnClickListener {
             showAddPokemonDialog()
+        }
+
+        val editTextSearch: EditText = findViewById(R.id.searchText)
+        val btnSearch: ImageButton = findViewById(R.id.searchIcon)
+        btnSearch.setOnClickListener {
+            val searchText = editTextSearch.text.toString().trim()
+            if (searchText.isNotEmpty()) {
+                searchPokemons(searchText)
+            } else {
+                Toast.makeText(this@ProductsActivity, "No s'ha trobat cap resultat", Toast.LENGTH_SHORT).show()
+                loadPokemons()
+            }
         }
 
         initRecyclerView()
@@ -103,8 +114,6 @@ class ProductsActivity : AppCompatActivity() {
             }
         }
     }
-
-
 
     private fun showAddPokemonDialog() {
         val builder = AlertDialog.Builder(this)
@@ -184,8 +193,21 @@ class ProductsActivity : AppCompatActivity() {
                 e.printStackTrace()
                 Toast.makeText(this@ProductsActivity, "Error de conexió", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
 
-
+    fun searchPokemons(text: String) {
+        lifecycleScope.launch {
+            try {
+                Log.d("API_REQUEST", "Buscando: $text")
+                val pokemons = withContext(Dispatchers.IO) {
+                    RetrofitInstance.api.searchPokemons(text)
+                }
+                updateRecyclerView(pokemons)
+            } catch (e: Exception) {
+                Log.e("ProductsActivity", "Error al buscar Pokémon: ${e.message}", e)
+                Toast.makeText(this@ProductsActivity, "Error al buscar Pokémon", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

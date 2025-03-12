@@ -23,4 +23,7 @@ interface PokemonApi {
 
     @DELETE("/pokemon/{id}")
     suspend fun deletePokemon(@Path("id") id: Int): Response<Unit>
+
+    @GET("/pokemon/search")
+    suspend fun searchPokemons(@Query("texto") texto: String): List<Pokemon>
 }
