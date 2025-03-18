@@ -28,7 +28,6 @@ object RetrofitInstance {
             .build()
     }
 
-
     val api: PokemonApi by lazy {
         retroift.create(PokemonApi::class.java)
     }
