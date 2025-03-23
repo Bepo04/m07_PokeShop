@@ -1,5 +1,10 @@
 # 📖 **Documentació de l'app PokeShop**
 
+## Novetats Pràctica 6.2
+A part del requisit mínim d'editar dades a través d'endpoints de la API, hem desenvolupat una búsqueda per text. Hem fet un endpoint que fa una consulta amb una condició semblant a l'operador _LIKE_ de SQL, de manera que si introduim un text a la barra de búsqueda de l'activity de productes, carregarem una llista amb tots els Pokemon que continguin el text en el seu nom.
+
+---
+
 🌟 **Benvingut/da a PokeShop!** 🌟  
 PokeShop és una app Android feta amb **Kotlin** que et permet gestionar una botiga Pokémon 🛒. És fàcil d'utilitzar, visualment atractiva i ideal per als fans de Pokémon. Let's go! 🚀
 
