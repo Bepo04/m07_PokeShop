@@ -33,13 +33,6 @@ class ProductsActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_products)
 
-        val mainView: View = findViewById(R.id.main)
-        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
-            val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         val btnFiltres: ImageButton = findViewById(R.id.btnFiltres)
         btnFiltres.setOnClickListener {
             val intent = Intent(this, Filters::class.java)

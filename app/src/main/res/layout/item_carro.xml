@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="170dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="25dp">
+    android:layout_margin="25dp"
+    tools:context=".Producte">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -18,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/foto"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,13 +34,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="@+id/foto"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/foto"
+                android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp">
 
 
                 <TextView
-                    android:id="@+id/textNom"
+                    android:id="@+id/nom_pokemon"
                     android:gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,55 +50,44 @@
                     android:textSize="12pt"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/textTipo"
+                    android:id="@+id/tipo_pokemon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tipo: rock"
                     android:textSize="9pt"/>
                 <TextView
-                    android:id="@+id/textAlsada"
+                    android:id="@+id/altura_pokemon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Alçada: 170"
-                    android:textSize="9pt"
-                    android:layout_marginBottom="15dp"/>
+                    android:textSize="9pt"/>
 
             </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/btnModificar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="10dp"
-                android:backgroundTint="#00FFFFFF"
-                android:src="@drawable/pokeball"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textPokemon"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <ImageButton
-                android:id="@+id/btnEliminar"
+            <TextView
+                android:id="@+id/preu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/basura_icon"
-                android:backgroundTint="#00FFFFFF"
+                android:text="Preu: 10 €"
+                android:textStyle="bold"
+                android:textSize="11pt"
+                app:layout_constraintStart_toEndOf="@+id/foto"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPokemon"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="5dp"/>
+            <ImageButton
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cancel_product"
+                android:backgroundTint="#00FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="50dp"/>
-
-            <Button
-                android:id="@+id/btnComprar"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                app:layout_constraintTop_toBottomOf="@+id/textPokemon"
-                app:layout_constraintBottom_toBottomOf="@+id/foto"
-                app:layout_constraintStart_toEndOf="@id/foto"
-                app:layout_constraintEnd_toStartOf="@+id/btnEliminar"
-                android:layout_marginStart="10dp"
-                android:text="Buy"/>
+                android:layout_marginEnd="5dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

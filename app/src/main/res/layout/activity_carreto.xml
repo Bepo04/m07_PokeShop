@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Title"
+        android:id="@+id/title"
         android:text="@string/carretoTitle"
         android:textSize="14pt"
         android:padding="16dp"
@@ -32,37 +32,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <fragment
-        android:name="com.ericandpau.pokeshopk.CartProduct"
-        android:id="@+id/product1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_cart_product"
-        app:layout_constraintTop_toBottomOf="@+id/Title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <fragment
-        android:name="com.ericandpau.pokeshopk.CartProduct"
-        android:id="@+id/product2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_cart_product"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/product1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintBottom_toTopOf="@+id/comanda"
+        android:id="@+id/recycler_carreto"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
     <Button
-        android:layout_marginTop="20dp"
         android:id="@+id/comanda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ferComanda"
-        app:layout_constraintTop_toBottomOf="@+id/product2"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_carreto"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/estadistica"
+        android:layout_marginVertical="15dp"
         android:backgroundTint="@color/primary_day"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/estadistica"
+        android:text="Veure estadístiques"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_carreto"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/comanda"
+        android:backgroundTint="@color/primary_day"
+        android:layout_marginVertical="15dp"/>
+
 
     <fragment
         android:id="@+id/bottom_nav"

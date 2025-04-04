@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.ericandpau.pokeshopk.Pokemon
 import com.ericandpau.pokeshopk.R
+import com.ericandpau.pokeshopk.adaptercarro.Carreto
 import com.ericandpau.pokeshopk.data.PokemonUpdateRequest
 import com.ericandpau.pokeshopk.data.RetrofitInstance
 import kotlinx.coroutines.CoroutineScope
@@ -37,11 +38,11 @@ class PokemonAdapter(
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val item = pokemonList[position]
-
         holder.render(item)
 
         val comprarButton: Button = holder.itemView.findViewById(R.id.btnComprar)
         comprarButton.setOnClickListener {
+            Carreto.items.add(item)
             Toast.makeText(holder.itemView.context, "Afegit al carreto", Toast.LENGTH_SHORT).show()
         }
 
@@ -54,6 +55,8 @@ class PokemonAdapter(
         deleteButton.setOnClickListener {
             onDelete(item.id)
         }
+
+
     }
 
 
