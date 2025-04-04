@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ericandpau.pokeshopk.Pokemon
 import com.ericandpau.pokeshopk.R
 
-class CarretoAdapter(private val items: List<Pokemon>) : RecyclerView.Adapter<CarretoViewHolder>() {
+class CarretoAdapter(
+    private val items: List<Pokemon>,
+    private val onEliminarClick: (Pokemon) -> Unit
+) : RecyclerView.Adapter<CarretoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarretoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_carro, parent, false)
-        return CarretoViewHolder(view)
+        return CarretoViewHolder(view, onEliminarClick)
     }
 
     override fun onBindViewHolder(holder: CarretoViewHolder, position: Int) {

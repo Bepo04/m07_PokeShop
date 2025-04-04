@@ -1,6 +1,8 @@
 package com.ericandpau.pokeshopk.adaptercarro
 
 import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -8,12 +10,17 @@ import com.bumptech.glide.Glide
 import com.ericandpau.pokeshopk.Pokemon
 import com.ericandpau.pokeshopk.R
 
-class CarretoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class CarretoViewHolder(
+    view: View,
+    val onEliminarClick: (Pokemon) -> Unit
+) : RecyclerView.ViewHolder(view) {
+
     val textNom: TextView = view.findViewById(R.id.nom_pokemon)
     val textTipo: TextView = view.findViewById(R.id.tipo_pokemon)
     val textAltura: TextView = view.findViewById(R.id.altura_pokemon)
     val textPrecio: TextView = view.findViewById(R.id.preu)
     val foto: ImageView = view.findViewById(R.id.foto)
+    val btnEliminar: ImageButton = view.findViewById(R.id.cancel_button)
 
     fun render(pokemon: Pokemon) {
         textNom.text = "${pokemon.nom.uppercase()}"
@@ -23,5 +30,9 @@ class CarretoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         Glide.with(foto.context)
             .load(pokemon.imgUrl)
             .into(foto)
+
+        btnEliminar.setOnClickListener {
+            onEliminarClick(pokemon)
+        }
     }
 }

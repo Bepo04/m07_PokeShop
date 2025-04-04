@@ -63,7 +63,12 @@ class CarretoActivity : AppCompatActivity() {
     }
 
     private fun actualitzarCarrito() {
-        adapter = CarretoAdapter(Carreto.items)
+        adapter = CarretoAdapter(Carreto.items.toMutableList()) { pokemonAEliminar ->
+            Carreto.items.remove(pokemonAEliminar)
+            Toast.makeText(this, "Esborrat del carreto", Toast.LENGTH_SHORT).show()
+            adapter.notifyDataSetChanged()
+            actualitzarCarrito()
+        }
         recyclerView.adapter = adapter
     }
 }
