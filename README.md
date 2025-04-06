@@ -1,104 +1,101 @@
 # 📖 **Documentació de l'app PokeShop**
 
+## Novetats Pràctica 6.3
+En aquesta actualització, hem incorporat diverses funcionalitats noves per millorar l'experiència de l'usuari:
+Generació d'estadístiques del carret de la compra: Ara, l'aplicació pot generar estadístiques basades en els productes que tens al carret, proporcionant informació detallada sobre les teves compres.​
+Ús de localStorage per a la persistència de dades: Hem implementat l'ús de localStorage per emmagatzemar les dades del carret de la compra, assegurant que la informació es persisteix.
+
 ## Novetats Pràctica 6.2
 A part del requisit mínim d'editar dades a través d'endpoints de la API, hem desenvolupat una búsqueda per text. Hem fet un endpoint que fa una consulta amb una condició semblant a l'operador _LIKE_ de SQL, de manera que si introduim un text a la barra de búsqueda de l'activity de productes, carregarem una llista amb tots els Pokemon que continguin el text en el seu nom.
 
 ---
 
-🌟 **Benvingut/da a PokeShop!** 🌟  
-PokeShop és una app Android feta amb **Kotlin** que et permet gestionar una botiga Pokémon 🛒. És fàcil d'utilitzar, visualment atractiva i ideal per als fans de Pokémon. Let's go! 🚀
+# 📱 PokeShop
+
+PokeShop és una aplicació mòbil per a Android que simula una botiga de productes Pokémon. L'objectiu principal és permetre a l'usuari consultar productes, afegir-los al carret de la compra, gestionar-los i consultar estadístiques de compra. Està desenvolupada amb **Kotlin**, fa ús d'una **API REST** i utilitza **localStorage** per persistència local.
 
 ---
 
-## 🧐 **Què és PokeShop?**  
-PokeShop és una aplicació mòbil que et permet:  
-- 📋 Veure el catàleg de productes Pokémon.  
-- 🛍️ Afegir productes al carret de la compra.  
-- 🗑️ Eliminar productes del carret.  
-- 💳 Finalitzar la compra.  
-Tot això amb una interfície d'usuari senzilla i amigable! 😊  
+## 🚀 Funcionalitats Principals
+
+- 🛍️ **Visualització de productes**  
+  Consulta el catàleg de productes Pokémon disponibles a la botiga.
+
+- ➕ **Afegir al carret**  
+  Afegeix productes al carret amb un sol clic.
+
+- ❌ **Eliminar del carret**  
+  Treu productes del carret quan ja no els necessitis.
+
+- 🧾 **Finalitzar compra**  
+  Simula una compra dels productes seleccionats.
+
+- 🔍 **Cerca per nom**  
+  Utilitza una barra de cerca per trobar productes pel nom (implementació tipus `LIKE` en SQL via endpoint).
+
+- 📊 **Estadístiques del carret**  
+  Nova funcionalitat! Es generen estadístiques dels productes afegits al carret com:
+  - Quantitat total de productes
+  - Total acumulat en € 
+  - Nombre de productes per tipus
+  - Gràfiques i visualització de dades (si aplica)
+
+- 💾 **Persistència amb localStorage**  
+  Les dades del carret es guarden en localStorage, permetent que l’usuari no perdi la seva selecció encara que tanqui l’app.
 
 ---
 
-## 🚀 **Com començar?**
+## 🛠️ Tecnologies Utilitzades
 
-### 1️⃣ **Requisits previs**  
-Abans de començar, assegura’t de tenir:  
-- 🛠️ Android Studio instal·lat.  
-- 📱 Un dispositiu Android o un emulador configurat.  
-- 🔥 Coneixements bàsics de Kotlin i Android.  
+- **Kotlin** – Llenguatge principal per al desenvolupament Android
+- **Android Studio** – IDE utilitzat
+- **API RESTful** – Per a la gestió de dades i consultes
+- **localStorage (SharedPreferences)** – Emmagatzematge local persistent
 
-### 2️⃣ **Clona el repositori**  
-Clona el projecte al teu ordinador:  
-```bash
-git clone https://github.com/Bepo04/m07_PokeShop.git
-3️⃣ Obre el projecte a Android Studio
+---
 
-    Obre Android Studio.
-    Fes clic a File > Open i selecciona la carpeta del projecte.
-    Espera que Gradle faci la sincronització automàtica. 🛠️
+## 📥 Instal·lació
 
-🛠️ Com està estructurat el projecte?
+1. Clona el repositori:
 
-L'app està dividida en diversos components principals:
+   ```bash
+   git clone https://github.com/Bepo04/m07_PokeShop.git
+   ```
 
-📂 Estructura de carpetes
+2. Obre el projecte a Android Studio:
+   - `File > Open`
+   - Selecciona la carpeta `m07_PokeShop`
 
-    app/src/main/java/com/pokeshop/
-        models: Conté les classes que defineixen els productes i altres dades.
-        views: Conté les activitats i fragments (interfície d'usuari).
-        adapters: Gestiona les llistes, com el RecyclerView per als productes.
-        controllers: Conté la lògica principal de l'aplicació.
-        utils: Funcions auxiliars i constants.
+3. Compila i executa:
+   - Connecta un dispositiu Android o utilitza un emulador
+   - Prem el botó ▶️ "Run"
 
-📑 Fitxers principals
+---
 
-    MainActivity.kt: La porta d'entrada a l'aplicació.
-    ProductListFragment.kt: Mostra el catàleg de productes.
-    CartFragment.kt: Gestiona els productes del carret de la compra.
-    CheckoutActivity.kt: Finalitza la compra.
+## 📂 Estructura del Projecte
 
-🕹️ Com executar l'app?
+```
+app/
+├── src/
+│   └── main/
+│       ├── java/com/pokeshop/
+│       │   ├── activities/
+│       │   ├── adapters/
+│       │   ├── api/
+│       │   ├── models/
+│       │   └── utils/
+│       └── res/
+│           ├── layout/
+│           └── values/
+```
+---
 
-    Connecta un dispositiu Android al teu ordinador o inicia un emulador.
-    A Android Studio, fes clic al botó ▶️ (Run).
-    Selecciona el dispositiu o emulador i espera que l'app es compili i s'executi.
+## 📄 Llicència
 
-✨ Funcionalitats principals
-🛒 Catàleg de productes
+Aquest projecte està llicenciat sota la **MIT License**. Consulta el fitxer `LICENSE` per a més informació.
 
-    Mostra una llista amb els productes Pokémon disponibles.
-    Cada producte té una imatge, nom, descripció i preu.
+---
 
-➕ Afegir al carret
+## 👥 Autors
 
-    Un botó permet afegir els productes al carret de la compra.
-
-🗑️ Eliminar del carret
-
-    Pots eliminar productes directament des del carret.
-
-✅ Finalitzar compra
-
-    Mostra el total i finalitza la compra amb un simple clic.
-
-🤝 Col·laboració
-
-Tens idees per millorar PokeShop? Ens encantarà veure-les! 😍
-
-    Fes un fork del projecte 🍴
-    Crea una nova branca:
-
-git checkout -b feature/la-teva-idea
-
-Fes els canvis i puja’ls:
-
-    git add .  
-    git commit -m "Afegeix la teva idea 💡"  
-    git push origin feature/la-teva-idea  
-
-    Obre un Pull Request i revisarem el teu treball!
-
-🐞 Reporta errors
-
-Si trobes algun error, no dubtis a obrir una Issue al repositori. Explica què ha passat i t’ajudarem tan aviat com puguem! 🚑
+Projecte desenvolupat per Eric Ayxendri & Pau Lorca :)
