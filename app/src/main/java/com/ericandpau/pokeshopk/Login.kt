@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import com.ericandpau.pokeshopk.validation.LoginValidator
 
 class Login : AppCompatActivity() {
 
@@ -14,6 +15,7 @@ class Login : AppCompatActivity() {
     private lateinit var button2: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -27,14 +29,24 @@ class Login : AppCompatActivity() {
         val password: EditText = findViewById(R.id.editTextTextPassword)
 
         button.setOnClickListener {
-            if (mail.text.toString().isEmpty() || password.text.toString().isEmpty()) {
-                Toast.makeText(this@Login, "Introdueix tots els camps", Toast.LENGTH_SHORT).show()
+
+            val emailInput = mail.text.toString()
+            val passwordInput = password.text.toString()
+
+            val emailError = LoginValidator.comprovaEmail(emailInput)
+            val passwordError = LoginValidator.comprovaContrasenya(passwordInput)
+
+            if (emailError != null) {
+                Toast.makeText(this@Login, emailError, Toast.LENGTH_SHORT).show()
+            } else if (passwordError != null) {
+                Toast.makeText(this@Login, passwordError, Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this@Login, MainActivity::class.java)
                 intent.putExtra("Loged", true)
                 startActivity(intent)
             }
         }
+
 
         button2.setOnClickListener {
             val intent = Intent(this@Login, Register::class.java)

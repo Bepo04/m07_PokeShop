@@ -56,4 +56,7 @@ dependencies {
     implementation(libs.glide.v4110)
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
+    testImplementation(kotlin("test"))
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.jupiter.engine)
 }
