@@ -57,6 +57,6 @@ dependencies {
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
     testImplementation(kotlin("test"))
-    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.jupiter.junit.jupiter)
     testRuntimeOnly(libs.junit.jupiter.engine)
 }
