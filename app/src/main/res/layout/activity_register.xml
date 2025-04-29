@@ -18,31 +18,27 @@
         tools:layout="@layout/fragment_nav_bar">
     </fragment>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toTopOf="parent"
-        android:gravity="center"
-        android:paddingTop="100dp"
-        android:layout_marginTop="150dp"
-        android:textSize="50sp"
-        android:text="@string/registre" />
-
-
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        app:layout_constraintTop_toBottomOf="@id/NavBar"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:gravity="center"
+        android:layout_marginHorizontal="15dp">
 
-        <!-- Nom -->
         <TextView
-            android:id="@+id/textViewNom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:text="@string/registre" />
+
+        <TextView
+            android:id="@+id/textViewNom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:paddingTop="190dp"
             android:text="@string/nom"/>
 
         <EditText
@@ -57,7 +53,7 @@
         <!-- Cognom -->
         <TextView
             android:id="@+id/textViewCognom"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="@string/cognom" />
@@ -68,13 +64,26 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:layout_margin="5dp"
             android:hint="@string/cognom" />
 
-        <!-- Email -->
+        <TextView
+            android:id="@+id/textViewUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/username" />
+
+        <EditText
+            android:id="@+id/editTextUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/username" />
+
         <TextView
             android:id="@+id/textViewEmail"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="@string/email" />
@@ -85,13 +94,12 @@
             android:layout_height="wrap_content"
             android:hint="@string/exemple_email"
             android:ems="10"
-            android:layout_margin="5dp"
             android:inputType="textEmailAddress" />
 
         <!-- Telèfon -->
         <TextView
             android:id="@+id/textViewTelefon"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="@string/telefon" />
@@ -101,14 +109,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:layout_margin="5dp"
             android:inputType="phone"
             android:hint="@string/telefon" />
 
         <!-- Adreça -->
         <TextView
             android:id="@+id/textViewAdreca"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="@string/adreca" />
@@ -118,9 +125,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:layout_margin="5dp"
             android:inputType="textPostalAddress"
             android:hint="@string/adreca" />
+
+        <TextView
+            android:id="@+id/textViewCP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/codi_postal" />
+
+        <EditText
+            android:id="@+id/editTextCP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:hint="@string/codi_postal" />
 
         <!-- Botó de Registrar -->
         <Button
@@ -177,6 +198,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/bottom_nav"
         android:name="com.ericandpau.pokeshopk.BottomNav"
         tools:ignore="MissingConstraints"
         tools:layout="@layout/fragment_bottom_nav"

@@ -1,10 +1,13 @@
 <resources>
     <string name="nom">Nom</string>
+    <string name="username">Nom d\'usuari</string>
+    <string name="example">example</string>
     <string name="cognom">Cognom</string>
     <string name="email">Correu electrònic</string>
     <string name="exemple_email">exemple@correu.com</string>
     <string name="telefon">Telèfon</string>
     <string name="adreca">Adreça</string>
+    <string name="codi_postal">Codi Postal</string>
     <string name="registrar">Registrar</string>
     <string name="app_name">PokeShop</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
