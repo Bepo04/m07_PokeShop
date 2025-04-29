@@ -56,4 +56,12 @@ dependencies {
     implementation(libs.glide.v4110)
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
+    //Testing
+    testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
+    androidTestImplementation (libs.mockito.core)
+    androidTestImplementation (libs.mockito.kotlin )
+    // Per a tests amb LiveData
+    testImplementation(libs.androidx.core.testing)
 }
