@@ -154,6 +154,17 @@
             android:text="@string/registrar"
             android:layout_gravity="center"
             android:backgroundTint="@color/primary_day"/>
+
+        <TextView
+            android:id="@+id/textViewError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:text="" />
+
     </LinearLayout>
 
     <ImageView

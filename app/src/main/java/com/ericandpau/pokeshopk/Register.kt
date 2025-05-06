@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.ericandpau.pokeshopk.validation.RegisterValidator
@@ -28,6 +27,8 @@ class Register : AppCompatActivity() {
         val textViewStatus: TextView = findViewById(R.id.textViewStatus)
         val buttonReturnHome: Button = findViewById(R.id.buttonReturnHome)
 
+        val textViewError: TextView = findViewById(R.id.textViewError)
+
         val username: EditText = findViewById(R.id.editTextUserName)
         val nom: EditText = findViewById(R.id.editTextNom)
         val cognom: EditText = findViewById(R.id.editTextCognom)
@@ -37,7 +38,6 @@ class Register : AppCompatActivity() {
         val telefon: EditText = findViewById(R.id.editTextTelefon)
 
         buttonRegister.setOnClickListener {
-            // Validem camps
             val errors = listOfNotNull(
                 RegisterValidator.actualitzaNomUsuari(username.text.toString()),
                 RegisterValidator.actualitzaNom(nom.text.toString()),
@@ -49,8 +49,11 @@ class Register : AppCompatActivity() {
             )
 
             if (errors.isNotEmpty()) {
-                Toast.makeText(this, errors.first(), Toast.LENGTH_SHORT).show()
+                textViewError.text = errors.first()
+                textViewError.visibility = TextView.VISIBLE
             } else {
+                textViewError.text = ""
+                textViewError.visibility = TextView.GONE
                 textViewStatus.text = "Registre completat!"
                 imageViewPikachu.visibility = ImageView.VISIBLE
                 textViewStatus.visibility = TextView.VISIBLE
@@ -68,3 +71,4 @@ class Register : AppCompatActivity() {
         }
     }
 }
+

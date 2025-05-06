@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -36,15 +37,23 @@ class Login : AppCompatActivity() {
             val emailError = LoginValidator.comprovaEmail(emailInput)
             val passwordError = LoginValidator.comprovaContrasenya(passwordInput)
 
+            val textViewError: TextView = findViewById(R.id.textViewLoginError)
+
             if (emailError != null) {
-                Toast.makeText(this@Login, emailError, Toast.LENGTH_SHORT).show()
+                textViewError.text = emailError
+                textViewError.visibility = TextView.VISIBLE
             } else if (passwordError != null) {
-                Toast.makeText(this@Login, passwordError, Toast.LENGTH_SHORT).show()
+                textViewError.text = passwordError
+                textViewError.visibility = TextView.VISIBLE
             } else {
+                textViewError.text = ""
+                textViewError.visibility = TextView.GONE
+
                 val intent = Intent(this@Login, MainActivity::class.java)
                 intent.putExtra("Loged", true)
                 startActivity(intent)
             }
+
         }
 
 

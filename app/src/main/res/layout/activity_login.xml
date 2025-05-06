@@ -90,6 +90,18 @@
             android:text="@string/no_tens_compte"
             android:backgroundTint="@color/primary_day"/>
 
+        <TextView
+            android:id="@+id/textViewLoginError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark"
+            android:text=""
+            android:visibility="gone"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:gravity="center"/>
+
+
     </LinearLayout>
 
     <fragment
