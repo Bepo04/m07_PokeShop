@@ -6,14 +6,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.ericandpau.pokeshopk.validation.LoginValidator
+import com.ericandpau.pokeshopk.viewmodels.LoginViewModel
 
 class Login : AppCompatActivity() {
 
     private lateinit var button: Button
     private lateinit var button2: Button
+
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
