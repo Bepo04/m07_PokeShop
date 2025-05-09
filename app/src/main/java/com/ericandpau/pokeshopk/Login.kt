@@ -32,34 +32,42 @@ class Login : AppCompatActivity() {
 
         val mail: EditText = findViewById(R.id.editTextTextEmailAddress)
         val password: EditText = findViewById(R.id.editTextTextPassword)
+        val textViewError: TextView = findViewById(R.id.textViewLoginError)
+
+        viewModel.errorMail.observe(this) { error ->
+            if (error.isNotEmpty()) {
+                textViewError.text = error
+                textViewError.visibility = TextView.VISIBLE
+            } else {
+                textViewError.visibility = TextView.GONE
+            }
+        }
+
+        viewModel.errorPassword.observe(this) { error ->
+            if (error.isNotEmpty()) {
+                textViewError.text = error
+                textViewError.visibility = TextView.VISIBLE
+            } else {
+                textViewError.visibility = TextView.GONE
+            }
+        }
 
         button.setOnClickListener {
-
             val emailInput = mail.text.toString()
             val passwordInput = password.text.toString()
 
-            val emailError = LoginValidator.comprovaEmail(emailInput)
-            val passwordError = LoginValidator.comprovaContrasenya(passwordInput)
+            viewModel.setMail(emailInput)
+            viewModel.setPassword(passwordInput)
 
-            val textViewError: TextView = findViewById(R.id.textViewLoginError)
+            viewModel.comprovaEmail()
+            viewModel.comprovaContrasenya()
 
-            if (emailError != null) {
-                textViewError.text = emailError
-                textViewError.visibility = TextView.VISIBLE
-            } else if (passwordError != null) {
-                textViewError.text = passwordError
-                textViewError.visibility = TextView.VISIBLE
-            } else {
-                textViewError.text = ""
-                textViewError.visibility = TextView.GONE
-
+            if (viewModel.errorMail.value.isNullOrEmpty() && viewModel.errorPassword.value.isNullOrEmpty()) {
                 val intent = Intent(this@Login, MainActivity::class.java)
                 intent.putExtra("Loged", true)
                 startActivity(intent)
             }
-
         }
-
 
         button2.setOnClickListener {
             val intent = Intent(this@Login, Register::class.java)

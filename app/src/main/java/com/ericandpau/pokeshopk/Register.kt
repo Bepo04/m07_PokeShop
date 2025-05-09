@@ -6,11 +6,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.ericandpau.pokeshopk.validation.RegisterValidator
+import com.ericandpau.pokeshopk.viewmodels.RegistreViewModel
 
 class Register : AppCompatActivity() {
+
+    private val viewModel: RegistreViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -36,37 +40,85 @@ class Register : AppCompatActivity() {
         val adreca: EditText = findViewById(R.id.editTextAdreca)
         val codiPostal: EditText = findViewById(R.id.editTextCP)
         val telefon: EditText = findViewById(R.id.editTextTelefon)
+        val pswd: EditText = findViewById(R.id.editTextPswd)
+        val pswdConf: EditText = findViewById(R.id.editTextPswdConf)
 
+        viewModel.errorNomUsuari.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+        viewModel.errorNom.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+        viewModel.errorCognom.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+        viewModel.errorEmail.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+        viewModel.errorAdresa.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+        viewModel.errorCodPostal.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+        viewModel.errorTelf.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+        viewModel.errorPassword.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+        viewModel.errorPswdConfirmation.observe(this) {
+            if (it.isNotEmpty()) textViewError.text = it
+        }
+
+        // Register button click
         buttonRegister.setOnClickListener {
-            val errors = listOfNotNull(
-                RegisterValidator.actualitzaNomUsuari(username.text.toString()),
-                RegisterValidator.actualitzaNom(nom.text.toString()),
-                RegisterValidator.actualitzaCognom(cognom.text.toString()),
-                RegisterValidator.actualitzaCorreu(correu.text.toString()),
-                RegisterValidator.actualitzaAdreca(adreca.text.toString()),
-                RegisterValidator.actualitzaCodiPostal(codiPostal.text.toString()),
-                RegisterValidator.actualitzaTelefon(telefon.text.toString()),
-            )
+            textViewError.text = ""
 
-            if (errors.isNotEmpty()) {
-                textViewError.text = errors.first()
-                textViewError.visibility = TextView.VISIBLE
-            } else {
+            // Set values in ViewModel
+            viewModel.setNomUsuari(username.text.toString())
+            viewModel.setNom(nom.text.toString())
+            viewModel.setCognom(cognom.text.toString())
+            viewModel.setEmail(correu.text.toString())
+            viewModel.setAdresa(adreca.text.toString())
+            viewModel.setCodPostal(codiPostal.text.toString())
+            viewModel.setTelf(telefon.text.toString())
+            viewModel.setPassword(pswd.text.toString())
+            viewModel.setPswdConfirmation(pswdConf.text.toString())
+
+            // Validate
+            viewModel.actualitzaNomUsuari()
+            viewModel.actualitzaNom()
+            viewModel.actualitzaCognom()
+            viewModel.actualitzaCorreu()
+            viewModel.actualitzaAdreca()
+            viewModel.actualitzaCodiPostal()
+            viewModel.actualitzaTelefon()
+            viewModel.actualitzaContrassenya()
+            viewModel.comparaContrassenyes()
+
+            // Si no hay errores visibles, se muestra éxito
+            if (viewModel.errorNomUsuari.value.isNullOrEmpty() &&
+                viewModel.errorNom.value.isNullOrEmpty() &&
+                viewModel.errorCognom.value.isNullOrEmpty() &&
+                viewModel.errorEmail.value.isNullOrEmpty() &&
+                viewModel.errorAdresa.value.isNullOrEmpty() &&
+                viewModel.errorCodPostal.value.isNullOrEmpty() &&
+                viewModel.errorTelf.value.isNullOrEmpty() &&
+                viewModel.errorPassword.value.isNullOrEmpty() &&
+                viewModel.errorPswdConfirmation.value.isNullOrEmpty()
+            ) {
                 textViewError.text = ""
-                textViewError.visibility = TextView.GONE
                 textViewStatus.text = "Registre completat!"
                 imageViewPikachu.visibility = ImageView.VISIBLE
                 textViewStatus.visibility = TextView.VISIBLE
                 buttonReturnHome.visibility = Button.VISIBLE
+            } else {
+                textViewError.visibility = TextView.VISIBLE
             }
         }
 
         buttonReturnHome.setOnClickListener {
-            textViewStatus.text = ""
-            imageViewPikachu.visibility = ImageView.GONE
-            textViewStatus.visibility = TextView.GONE
-            buttonReturnHome.visibility = Button.GONE
-
             startActivity(intent)
         }
     }

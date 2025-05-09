@@ -16,20 +16,20 @@ class LoginViewModel : ViewModel() {
 
     val errorNomUsuari: LiveData<String> = _errorNomUsuari
     val errorPassword: LiveData<String> = _errorPassword
-    val errorMail: LiveData<String> = _errorPassword
+    val errorMail: LiveData<String> = _errorMail
 
     private val _formulariValid =MutableLiveData<Boolean>(false)
     val formulariValid:MutableLiveData<Boolean> = _formulariValid
 
-    fun actualitzaNomUsuari(nomUsuari: String) {
+    fun setNomUsuari(nomUsuari: String) {
         _nomUsuari = nomUsuari
     }
 
-    fun actualitzaPassword(pswd: String) {
+    fun setPassword(pswd: String) {
         _password = pswd
     }
 
-    fun actualitzaMail(mail: String) {
+    fun setMail(mail: String) {
         _mail = mail
     }
 
@@ -41,7 +41,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    public fun comprovaEmail(email: String) {
+    public fun comprovaEmail() {
         val regexEmail = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\$".toRegex()
         if (_mail.isBlank()) {
             _errorMail.value = "El correu és obligatori"
@@ -52,7 +52,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    public fun comprovaContrassenya() {
+    public fun comprovaContrasenya() {
         val contrassenyesFacils = listOf("12345678", "password", "qwerty", "111111111")
         if (_password.isBlank()) {
             _errorPassword.value = "La contrassenya és obligatòria"

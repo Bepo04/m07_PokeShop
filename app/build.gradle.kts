@@ -54,9 +54,10 @@ dependencies {
     implementation(libs.okhttp)
     //Glide
     implementation(libs.glide.v4110)
-    //Coroutines
+
     implementation(libs.kotlinx.coroutines.android)
     testImplementation(kotlin("test"))
     testImplementation(libs.jupiter.junit.jupiter)
     testRuntimeOnly(libs.junit.jupiter.engine)
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
 }
